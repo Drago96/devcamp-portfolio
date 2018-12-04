@@ -18,6 +18,6 @@ end
     subtitle: "Subtitle #{portfolio_item}",
     body: "Body #{portfolio_item}",
     main_image: 'https://via.placeholder.com/600x400',
-    thumb_image: 'https://via.placeholder.com/350x350'
+    thumb_image: 'https://via.placeholder.com/350x200'
   )
 end
