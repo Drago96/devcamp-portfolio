@@ -1,6 +1,6 @@
 module ApplicationHelper
   def login_helper
-    if logged_in?
+    if !current_user.is_a?(GuestUser)
       link_to 'Logout', destroy_user_session_path, method: :delete
     else
       register_link = link_to 'Register', new_user_registration_path
@@ -19,9 +19,5 @@ module ApplicationHelper
 
   def copyright_generator
     ProychevViewTool::Renderer.copyright 'Dragomir Proychev', 'All rights reserved'
-  end
-
-  def logged_in?
-    current_user.is_a?(User)
   end
 end
