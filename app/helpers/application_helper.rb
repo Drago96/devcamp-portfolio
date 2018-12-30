@@ -17,6 +17,10 @@ module ApplicationHelper
     content_tag :p, greeting, class: 'source-greeting'
   end
 
+  def copyright_generator
+    ProychevViewTool::Renderer.copyright 'Dragomir Proychev', 'All rights reserved'
+  end
+
   def logged_in?
     current_user.is_a?(User)
   end
