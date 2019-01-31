@@ -2,3 +2,5 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Layout/EndOfLine:
   EnforcedStyle: crlf
+Style/Documentation:
+  Enabled: false
