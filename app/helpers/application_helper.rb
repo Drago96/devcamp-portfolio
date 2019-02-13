@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def login_helper className
+  def login_helper className = ""
     if !current_user.is_a?(GuestUser)
       link_to 'Logout', destroy_user_session_path, method: :delete, class: className
     else
