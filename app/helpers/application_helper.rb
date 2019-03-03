@@ -6,7 +6,7 @@ module ApplicationHelper
       register_link = link_to 'Register', new_user_registration_path, class: className
       login_link = link_to 'Login', new_user_session_path, class: className
 
-      register_link + login_link
+      raw "#{register_link} #{login_link}"
     end
   end
 
