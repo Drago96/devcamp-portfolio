@@ -17,7 +17,7 @@ class Portfolio < ApplicationRecord
     where(subtitle: 'Angular')
   end
 
-  scope :ruby_on_rails_portfolio_items, -> {
+  scope :ruby_on_rails_portfolio_items, lambda {
     where(subtitle: 'Ruby on rails')
   }
 end

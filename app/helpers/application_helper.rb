@@ -1,16 +1,16 @@
 module ApplicationHelper
-  def login_helper className = ""
+  def login_helper(class_name = '')
     if !current_user.is_a?(GuestUser)
-      link_to 'Logout', destroy_user_session_path, method: :delete, class: className
+      link_to 'Logout', destroy_user_session_path, method: :delete, class: class_name
     else
-      register_link = link_to 'Register', new_user_registration_path, class: className
-      login_link = link_to 'Login', new_user_session_path, class: className
+      register_link = link_to 'Register', new_user_registration_path, class: class_name
+      login_link = link_to 'Login', new_user_session_path, class: class_name
 
       raw "#{register_link} #{login_link}"
     end
   end
 
-  def source_helper layout_name
+  def source_helper(layout_name)
     return unless session[:source]
 
     greeting = "Thanks for visiting me from #{session[:source]} and you are on the #{layout_name} layout"
@@ -42,17 +42,17 @@ module ApplicationHelper
       {
         url: portfolios_path,
         title: 'Portfolios'
-      },
+      }
     ]
   end
 
-  def nav_helper style, tag_type
-    nav_items.map { |nav_item|
+  def nav_helper(style, tag_type)
+    nav_items.map do |nav_item|
       "<#{tag_type}><a href=\"#{nav_item[:url]}\" class=\"#{style} #{active? nav_item[:url]}\">#{nav_item[:title]}</a></#{tag_type}>"
-    }.join('').html_safe
+    end.join('').html_safe
   end
 
-  def active? path
-    "active" if current_page? path
+  def active?(path)
+    'active' if current_page? path
   end
 end

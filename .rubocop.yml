@@ -1,6 +1,6 @@
 Style/FrozenStringLiteralComment:
   Enabled: false
 Layout/EndOfLine:
-  EnforcedStyle: crlf
+  EnforcedStyle: lf
 Style/Documentation:
   Enabled: false
