@@ -1,5 +1,7 @@
 {
   "name": "DevcampPortfolio",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "html5sortable": "^0.9.16"
+  }
 }
