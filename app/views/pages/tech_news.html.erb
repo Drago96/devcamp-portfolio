@@ -1,0 +1,10 @@
+<div class="inner cover">
+  <h1 class="cover-heading">Rails News</h1>
+  <div class="row">
+    <% @tweets.each do |tweet| %>
+      <div class="col-md-6 tech-news card">
+        <%= twitter_parser(tweet) %>
+      </div>
+    <% end %>
+  </div>
+</div>
