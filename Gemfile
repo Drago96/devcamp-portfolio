@@ -53,12 +53,15 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'bootstrap', '~> 4.0.0alpha6'
+gem 'carrierwave-aws', '~> 1.3'
 gem 'devise', '~> 4.5'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.4'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 gem 'friendly_id'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
+gem 'mini_magick', '~> 4.9', '>= 4.9.5'
 gem 'petergate', '~> 2.0', '>= 2.0.1'
 gem 'popper_js', '~> 1.14.5'
 gem 'proychev_view_tool', git: 'https://github.com/Drago96/rails-view-tool'
