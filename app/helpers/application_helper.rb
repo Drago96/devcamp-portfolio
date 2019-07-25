@@ -55,4 +55,8 @@ module ApplicationHelper
   def active?(path)
     'active' if current_page? path
   end
+
+  def alert(content)
+    js add_gritter(content, title: "Dragomir Proychev's Portfolio", sticky: false)
+  end
 end

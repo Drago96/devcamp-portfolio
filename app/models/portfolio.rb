@@ -5,7 +5,7 @@ class Portfolio < ApplicationRecord
   mount_uploader :main_image, PortfolioUploader
 
   has_many :technologies, dependent: :destroy
-  accepts_nested_attributes_for :technologies, reject_if: ->(attrs) { attrs['name'].blank? }
+  accepts_nested_attributes_for :technologies, allow_destroy: true, reject_if: ->(attrs) { attrs['name'].blank? }
 
   scope :ruby_on_rails_portfolio_items, lambda {
     where(subtitle: 'Ruby on rails')
