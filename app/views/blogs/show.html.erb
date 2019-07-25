@@ -6,5 +6,10 @@
   <p>
     <%= @blog.body %>
   </p>
-  <%= link_to 'Back', blogs_path %>
+  <% unless current_user.is_a? GuestUser %>
+    <%= render 'comments/form' %>
+  <% end%>
+  <div id="comments" data-blog-id="<%= @blog.id %>">
+    <%= render @blog.comments %>
+  </div>
 </div>
