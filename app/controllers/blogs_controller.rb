@@ -6,16 +6,27 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.page(params[:page]).per(5)
+    @blogs =
+      Blog.yield_self do |blogs|
+        if logged_in?(:site_admin)
+          blogs
+        else
+          blogs.published
+        end
+      end.recent.page(params[:page]).per(5)
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @comment = Comment.new
+    if logged_in?(:site_admin) || @blog.published?
+      @comment = Comment.new
 
-    @page_title = @blog.title
-    @seo_keywords = @blog.body
+      @page_title = @blog.title
+      @seo_keywords = @blog.body
+    else
+      redirect_to blogs_path, notice: 'You are not authorized to view this page'
+    end
   end
 
   # GET /blogs/new
@@ -69,6 +80,7 @@ class BlogsController < ApplicationController
 
   def toggle_status
     @blog.draft? ? @blog.published! : @blog.draft!
+
     redirect_to blogs_url, notice: 'Post status has been updated.'
   end
 
@@ -81,6 +93,6 @@ class BlogsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def blog_params
-    params.require(:blog).permit(:title, :body)
+    params.require(:blog).permit(:title, :body, :topic_id)
   end
 end
