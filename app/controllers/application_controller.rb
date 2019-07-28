@@ -5,4 +5,10 @@ class ApplicationController < ActionController::Base
   include SetSource
   include CurrentUserConcern
   include DefaultPageContent
+
+  private
+
+  def set_sidebar_topics
+    @sidebar_topics = Topic.with_blogs
+  end
 end

@@ -2,10 +2,21 @@
   <h2>
     <%= @blog.title %>
   </h2>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+      <li class="breadcrumb-item"><%= link_to @blog.topic.title, topic_path(@blog.topic) %></li>
+      <li class="breadcrumb-item active" aria-current="page"><span><%= @blog.title %></span></li>
+      <% if logged_in?(:site_admin) %>
+        <li class="ml-auto float-right">
+          <%= render partial: 'admin_actions', locals: { blog: @blog } %>
+        </li>
+      <% end %>
+    </ol>
+  </nav>
   <p><%= @blog.topic.title %></p>
-  <%= link_to 'Edit', edit_blog_path(@blog) if logged_in?(:site_admin) %>
   <p>
-    <%= @blog.body %>
+    <%= markdown @blog.body %>
   </p>
   <% unless current_user.is_a? GuestUser %>
     <%= render 'comments/form' %>
