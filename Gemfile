@@ -68,7 +68,7 @@ gem 'mini_magick', '~> 4.9', '>= 4.9.5'
 gem 'petergate', '~> 2.0', '>= 2.0.1'
 gem 'popper_js', '~> 1.14.5'
 gem 'proychev_view_tool', git: 'https://github.com/Drago96/rails-view-tool'
-gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+gem 'redcarpet', '~> 3.5'
 gem 'redis', '~> 3.3', '>= 3.3.1'
 gem 'twitter', '~> 6.2'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
